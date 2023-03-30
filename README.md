@@ -1,1 +1,1 @@
-# multi-threaded-java-application
+# P2-multi-threaded-java-application
