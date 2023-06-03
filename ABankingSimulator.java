@@ -1,9 +1,3 @@
-/* Name: Richard Larenas
- Course: CNT 4714 Spring 2023
- Assignment title: Project 2 – Synchronized, Cooperating Threads Under Locking
- Due Date: February 12, 2023
-*/
-
 package P_2;
 
 import java.util.concurrent.ExecutorService;
@@ -11,15 +5,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.text.NumberFormat;
+import java.text.DecimalFormat;
+import java.text.DateFormat;
 import java.util.TimeZone;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.Random;
-import java.text.NumberFormat;
-import java.text.DecimalFormat;
-import java.text.DateFormat;
 import java.util.Date;
 
 public class ABankingSimulator {
@@ -42,6 +36,7 @@ public class ABankingSimulator {
             balance = 0;
             accessLock = new ReentrantLock();
             sufficientFunds = accessLock.newCondition();
+         
         }
 
         public static int getRandomNumber(int min, int max) {
