@@ -1,1 +1,1 @@
-# P2-multi-threaded-java-application
+#multi-threaded-java-bank-application
