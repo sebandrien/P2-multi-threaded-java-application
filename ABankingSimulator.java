@@ -47,7 +47,7 @@ public class ABankingSimulator {
             accessLock.lock();
             try {
                 if (i > 350) {
-                    balance += i; //$350 flag, print to file
+                    balance += i; 
                     System.out.printf("%s deposits $%d\t\t\t\t\t\t(+)Balance is $%d\t\t " + transactionNum + "\n", threadname, i, balance);
                     System.out.printf("\n");
                     System.out.printf("***Flagged Transaction - Deposit %s made a deposit in excess of $350.00 USD - See Flagged Transaction Log.", threadname);
@@ -58,6 +58,7 @@ public class ABankingSimulator {
                     transactionNum++;
                     sufficientFunds.signalAll();
                     counter++;
+                    
                 } else {
                     balance += i;
                     System.out.printf("%s deposits $%d\t\t\t\t\t\t(+)Balance is $%d\t\t " + transactionNum + "\n", threadname, i, balance);
@@ -75,8 +76,6 @@ public class ABankingSimulator {
 
         public void withdraw(int i, String threadname) {
             accessLock.lock();
-
-
             try {
 
                 if (balance > i && i < 75) {
@@ -85,7 +84,7 @@ public class ABankingSimulator {
                     transactionNum++;
                     counter++;
                 } else if (i > 75 && balance > i) {
-                    balance -= i; //$75 flag, print to file
+                    balance -= i; 
                     System.out.printf("\t\t\t\t%s withdrawls $%-3d\t(-)Balance is $%-3d\t\t " + transactionNum + "\n", threadname, i, balance);
                     System.out.printf("\n");
                     System.out.printf("\t\t\t\t***Flagged Transaction - Withdrawl %s made a withdrawl in excess of $75.00 USD - See Flagged Transaction Log.", threadname);
@@ -113,8 +112,6 @@ public class ABankingSimulator {
         }
 
         private void printFileWithdrawal(double i, String threadname) {
-
-
             Date date = new Date();
             DateFormat formatter = new SimpleDateFormat("DD/MM/YY HH:MM:SS z");
 
@@ -135,8 +132,7 @@ public class ABankingSimulator {
         }
 
         private void printFileDeposit(double i, String threadname) {
-
-
+            
             Date date = new Date();
             DateFormat formatter = new SimpleDateFormat("DD/MM/YY HH:MM:SS z");
 
@@ -160,7 +156,7 @@ public class ABankingSimulator {
             accessLock.lock();
 
             try {
-                if (k == 3) { //signals to print audit, slept at random intervals
+                if (k == 3) { 
                     System.out.printf("\n\n");
                     System.out.printf("\t ***************************** Auditor finds current account balance to be: $" + balance + "     Number of transactions since last audit is: " + counter + " ******************************** \t");
                     System.out.printf("\n\n");
@@ -180,8 +176,6 @@ public class ABankingSimulator {
 
         ExecutorService application = Executors.newFixedThreadPool(MAX_AGENTS);
         Account sharedLocation = new Account();
-
-
 
         try {
 
@@ -225,10 +219,8 @@ public class ABankingSimulator {
             application.execute(w10);
             application.execute(a1);
 
-
-
-
-        } catch (Exception exception) {
+        } 
+        catch (Exception exception) {
             exception.printStackTrace();
         }
 
