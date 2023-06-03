@@ -148,8 +148,6 @@ public class ABankingSimulator {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
             }
-
-
         }
 
         public void audit(int i, String threadname) throws InterruptedException {
@@ -168,9 +166,7 @@ public class ABankingSimulator {
             }
 
         }
-
     }
-
 
     public static void main(String[] args) {
 
